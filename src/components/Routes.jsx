@@ -1,7 +1,7 @@
-import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-
-import { Results } from './Results';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { Results } from "./Results";
+import ErrorPage from "./UI/ErrorPage";
 
 export const Routes = () => (
   <div className="p-4">
@@ -12,17 +12,15 @@ export const Routes = () => (
       <Route exact path="/search">
         <Results />
       </Route>
-      <Route path="/images">
+      <Route exact path="/images">
         <Results />
       </Route>
-      <Route path="/news">
+      <Route exact path="/news">
         <Results />
       </Route>
-      <Route path="/videos">
-        <Results />
+      <Route path="/*">
+        <ErrorPage />
       </Route>
-
     </Switch>
   </div>
-
 );
